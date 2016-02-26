@@ -21,7 +21,7 @@ public class Fuzzer extends Thread {
         HttpURLConnection conn;
         int code = 0;
 
-        String dir = null;
+        String dir;
         while ((dir = queue.pop()) != null) {
             try {
                 u = new URL(addDirToUrl(url, dir));

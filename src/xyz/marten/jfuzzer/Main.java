@@ -9,12 +9,12 @@ public class Main {
         Queue q = Queue.getInstance();
         q.load("small.txt");
 
-//        Fuzzer f = new Fuzzer("http://marten.xyz/");
-//        f.start();
+        Manager m = new Manager();
+        m.start();
 
         List<Fuzzer> list = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            list.add(new Fuzzer("http://marten.xyz/"));
+        for (int i = 0; i < 25; i++) {
+            list.add(new Fuzzer("https://marten.xyz/"));
             list.get(i).start();
         }
     }
