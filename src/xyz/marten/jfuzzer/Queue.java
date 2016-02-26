@@ -19,9 +19,12 @@ public class Queue {
     private List<String> dirs = new ArrayList<>();
 
     public String pop() {
-        String out = dirs.get(0);
-        dirs.remove(out);
-        return out;
+        if (dirs.size() > 0) {
+            String out = dirs.get(0);
+            dirs.remove(out);
+            return out;
+        }
+        return null;
     }
 
     public void add(String dir) {
