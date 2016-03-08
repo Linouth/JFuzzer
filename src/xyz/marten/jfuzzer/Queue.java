@@ -4,6 +4,7 @@ import xyz.marten.jfuzzer.utils.FileUtils;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,6 +17,7 @@ public class Queue {
     }
 
 
+//    private LinkedList<String> dirs = new LinkedList<>();
     private List<String> dirs = new ArrayList<>();
     private int popped = 0;
     private int size = 0;
@@ -46,6 +48,22 @@ public class Queue {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    public void addExtensions(String[] extensions) {
+        List<String> temp = new ArrayList<>();
+        for (String i : dirs) {
+            temp.add(i);
+
+            for (String e : extensions) {
+                temp.add(i + "." + e);
+            }
+        }
+        size = temp.size();
+        dirs = temp;
+    }
+    public void continueAt(int num) {
+        dirs.subList(0, num).clear();
+        popped = num;
     }
 
     public int getPoppedCount() {
